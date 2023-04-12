@@ -7,6 +7,7 @@ public class ex3 {
 
 		System.out.println("Digite o valor de n:");
 		int n = sc.nextInt();
+		int n2 = n;
 		int[][] matriz = new int[n][n];
 
 		for (int linha = 0; linha < matriz.length; linha++) {
@@ -37,24 +38,45 @@ public class ex3 {
 				}
 			}
 			System.out.print("\n");
-		}
-		int contador = n;
-		for (int linha = 0; linha < matriz.length; linha++) {
-			if (linha == 0) {
+			if (linha == matriz.length - 1) {
 				System.out.print("*");
 				for (int iguais = 0; iguais < matriz.length; iguais++) {
 					System.out.print("=");
 				}
 				System.out.println("*");
 			}
-
+		}
+		n = n2;
+		int auxiliar = n2;
+		for (int linha = 0; linha < matriz.length; linha++) {
 			for (int coluna = 0; coluna < matriz.length; coluna++) {
 				if (coluna == 0) {
 					System.out.print("*");
 				}
-				
-
+				if (linha + coluna == matriz.length - 1) {
+					for (int contador = 0; contador < n2 - auxiliar; contador++) {
+						System.out.print(" ");
+					}
+					
+					for (int contador = 0; contador < coluna + 1; contador++) {
+						System.out.print(n);
+					}
+					n = n - 1;
+				}
+				if (coluna == matriz.length - 1) {
+					System.out.print("*");
+				}
 			}
+			auxiliar--;
+			System.out.print("\n");
+			if (linha == matriz.length - 1) {
+				System.out.print("*");
+				for (int iguais = 0; iguais < matriz.length; iguais++) {
+					System.out.print("=");
+				}
+				System.out.println("*");
+			}
+			
 		}
 
 	}
